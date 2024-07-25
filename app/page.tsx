@@ -5,9 +5,7 @@ import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNav";
-import Image from "next/image";
-import { FaArrowUp, FaBriefcase, FaCode, FaEnvelope, FaHome, FaPhone, FaUser } from "react-icons/fa";
-import { FaTemperatureArrowUp } from "react-icons/fa6";
+import {  FaBriefcase, FaCode, FaEnvelope, FaUser } from "react-icons/fa";
 
 export default function Home() {
   return (

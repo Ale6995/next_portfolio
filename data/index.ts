@@ -10,12 +10,12 @@ export const navItems = [
   export const gridItems = [
     {
       id: 1,
-      title: " Highly motivated and results-oriented, passionate for hybrid mobile development. ",
+      title: " Highly motivated, results oriented and passionate for hybrid mobile development. ",
       description: "",
       className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
       imgClassName: "w-full h-full",
       titleClassName: "justify-end",
-      img: "/F1.svg",
+      img: "/b1.svg",
       spareImg: "",
     },
     {
@@ -102,7 +102,7 @@ export const navItems = [
       des: "App Custom built for La Previsora, a leading insurance company in Colombia. Developed in AngularJs, and native for ios and android app.",
       img: "/previsora.svg",
       iconLists: ["/angular.png", "/bootstrap.svg", "/ts.svg"],
-      link: "https://asesoftware.com/en/case-studies/la-previsora-us/",
+      link: "https://asesoftware.com/proyectos/caso-de-exito-la-previsora/",
     },
   ];
   
@@ -112,31 +112,43 @@ export const navItems = [
   export const workExperience = [
     {
       id: 1,
-      title: "Frontend Engineer Intern",
-      desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+      title: "Software Developer, Ux/UI Lead",
+      company: "Provincial Smart Home Services",
+      desc: "Led the development of multiple web and mobile projects using Flutter and React.js, and the creation of a REST API for the integration of platforms like five9, Salesforce and Meta Ads.",
       className: "md:col-span-2",
-      thumbnail: "/exp1.svg",
+      thumbnail: "/pshs.webp",
     },
     {
       id: 2,
-      title: "Mobile App Dev - JSM Tech",
-      desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+      title: "Software Developer,",
+      company: "Asesoftware",
+      desc: 'Collaborated with cross-functional teams in the development of mobile and web applications for multiple customers like "Bank of the Republic of Colombia", La Previsora and Justo & Bueno',
       className: "md:col-span-2", // change to md:col-span-2
-      thumbnail: "/exp2.svg",
+      thumbnail: "/asesoftware.png",
     },
     {
       id: 3,
-      title: "Freelance App Dev Project",
-      desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+      title: "Product Support Technician",
+      company: "TouchBistro",
+      desc: "Provided exceptional customer service and technical support to TouchBistro clients and collaborated with internal teams to identify and document bugs or issues with the platform.",
       className: "md:col-span-2", // change to md:col-span-2
-      thumbnail: "/exp3.svg",
+      thumbnail: "/tb.svg",
     },
     {
       id: 4,
-      title: "Lead Frontend Developer",
-      desc: "Developed and maintained user-facing features using modern frontend technologies.",
+      title: "Data Analyst",
+      company: "Teleperformance",
+      desc: "Performed data analysis and real time reporting to the operations team, and collaborated with cross-functional teams to improve the efficiency of the call center.",
       className: "md:col-span-2",
-      thumbnail: "/exp4.svg",
+      thumbnail: "/teleperformance.svg",
+    },
+    {
+      id: 5,
+      title: "Canine Care Volunteer",
+      company: "Toronto Humane Society",
+      desc: "Actively helped with the care and socialization of dogs. Assisted with the cleaning and maintenance of the shelter, and helped with the organization of events and fundraisers.",
+      className: "md:col-span-2",
+      thumbnail: "/ths.png",
     },
   ];
   
@@ -144,11 +156,11 @@ export const navItems = [
     {
       id: 1,
       img: "/git.svg",
-      link: ""
+      link: "https://github.com/Ale6995"
     },
     {
       id: 3,
       img: "/link.svg",
-      link: ""
+      link: "https://www.linkedin.com/in/alejandromoralesa/"
     },
   ];
