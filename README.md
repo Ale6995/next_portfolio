@@ -1,9 +1,10 @@
-## About
+## About me
+This is my personal portfolio
+This project is deployed using firebase hosting: visit the [live version](https://alejandro-morales.com)
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-The Purpose of this project was to practice the implementation of Aceternity components, while showcasing my skills and previous Experience.
-This project is deployed using firebase hosting: visit the [live version](https://alejandro-morales.com)
 
 ## Learn More
 
