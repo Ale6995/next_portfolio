@@ -32,7 +32,7 @@ const Hero = () => {
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <h2 className="uppercase tracking-widest text-xs text-center dark:text-blue-100 text-black-200 max-w-80">
-            Dynamic Web Magic with Next.js
+            Web & Mobile 
           </h2>
 
           {/* TODO:Chang this captions */}
@@ -42,7 +42,7 @@ const Hero = () => {
           />
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-1xl dark:text-blue-100 text-black-200">
-            Hi! I&apos;m Alejandro, a Front end Developer based in Toronto, Canada.
+            Hi! I&apos;m Alejandro, a Full Stack Developer based in Toronto, Canada.
           </p>
 
           <a href="#about">

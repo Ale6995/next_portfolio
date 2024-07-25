@@ -1,24 +1,26 @@
+import { link } from "fs";
+
 export const navItems = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
-    { name: "Testimonials", link: "#testimonials" },
+    { name: "Work Experience", link: "#experience" },
     { name: "Contact", link: "#contact" },
   ];
   
   export const gridItems = [
     {
       id: 1,
-      title: "I prioritize client collaboration, fostering open communication ",
+      title: " Highly motivated and results-oriented, passionate for hybrid mobile development. ",
       description: "",
       className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
       imgClassName: "w-full h-full",
       titleClassName: "justify-end",
-      img: "/b1.svg",
+      img: "/F1.svg",
       spareImg: "",
     },
     {
       id: 2,
-      title: "I'm very flexible with time zone communications",
+      title: "Prioritizing Communication and Collaboration, Anywhere",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
@@ -49,7 +51,7 @@ export const navItems = [
   
     {
       id: 5,
-      title: "Currently building a JS Animation library",
+      title: "Currently transforming the HVAC Industry in Canada with Technology.",
       description: "The Inside Scoop",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -74,101 +76,38 @@ export const navItems = [
       id: 1,
       title: "Pronto",
       des: "Revolutionizng the hvac industry with a fixed quote generator and booking web app.",
-      img: "/p1.svg",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+      img: "/pronto.svg",
+      iconLists: ["/flutter.svg","next.svg", "/javascript.svg", "/firebase.svg","python.svg"],
       link: "https://quote.mypronto.io/",
     },
     {
       id: 2,
       title: "My PSH App",
-      des: "Mobile Application for customers to book and manage their services, rebates, buyouts, and more in just a few clicks. Developed in Flutter and available for both iOS and Android.",
-      img: "/p2.svg",
-      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+      des: "Mobile Application for customers to book and manage their services, rebates, buyouts, and more in just a few clicks. Developed in Flutter and available on Web, iOS and Android.",
+      img: "/pshApp.svg",
+      iconLists: [ "/javascript.svg","/flutter.svg", "/firebase.svg","python.svg"],
       link: "https://provincialsmarthome.com/download-the-app/",
     },
     {
       id: 3,
       title: "Justo & Bueno",
       des: "Web and mobile Ecommerce, for one of the bigger supermarket chains in Colombia. Developed in Angular for web and Flutter for Mobile App",
-      img: "/p3.svg",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+      img: "/JB.svg",
+      iconLists: ["/angular.png","bootstrap.svg","/ts.svg", "/flutter.svg"],
       link: "https://justo-bueno.bd.aptoide.com/app",
     },
     {
       id: 4,
       title: "La Previsora App",
       des: "App Custom built for La Previsora, a leading insurance company in Colombia. Developed in AngularJs, and native for ios and android app.",
-      img: "/p4.svg",
-      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+      img: "/previsora.svg",
+      iconLists: ["/angular.png", "/bootstrap.svg", "/ts.svg"],
       link: "https://asesoftware.com/en/case-studies/la-previsora-us/",
     },
   ];
   
-  export const testimonials = [
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-  ];
+
   
-  export const companies = [
-    {
-      id: 1,
-      name: "cloudinary",
-      img: "/cloud.svg",
-      nameImg: "/cloudName.svg",
-    },
-    {
-      id: 2,
-      name: "appwrite",
-      img: "/app.svg",
-      nameImg: "/appName.svg",
-    },
-    {
-      id: 3,
-      name: "HOSTINGER",
-      img: "/host.svg",
-      nameImg: "/hostName.svg",
-    },
-    {
-      id: 4,
-      name: "stream",
-      img: "/s.svg",
-      nameImg: "/streamName.svg",
-    },
-    {
-      id: 5,
-      name: "docker.",
-      img: "/dock.svg",
-      nameImg: "/dockerName.svg",
-    },
-  ];
   
   export const workExperience = [
     {
@@ -205,13 +144,11 @@ export const navItems = [
     {
       id: 1,
       img: "/git.svg",
-    },
-    {
-      id: 2,
-      img: "/twit.svg",
+      link: ""
     },
     {
       id: 3,
       img: "/link.svg",
+      link: ""
     },
   ];

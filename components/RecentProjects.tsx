@@ -7,20 +7,21 @@ import { PinContainer } from "./ui/3d-Pin";
 
 const RecentProjects = () => {
   return (
-    <div className="py-20">
+    <div className="py-20" id="projects">
       <h1 className="heading">
         A small selection of{" "}
-        <span className="text-purple">recent projects</span>
+        <span className="text-purple"> projects</span>
       </h1>
-      <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
+      <div className="flex flex-wrap items-center justify-center p-4 gap-y-8 gap-x-24 mt-10">
         {projects.map(({title,des,link,img, iconLists,id}) => (
+          
           <div
-            className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
+            className="sm:h-[30rem] lg:min-h-[32.5rem] h-[32rem]  flex items-center justify-center sm:w-[570px] w-[80vw]"
             key={id}
           >
             <PinContainer title={title} href={link}
             >
-              <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
+              <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[30rem] h-[30vh] lg:h-[30vh] mb-10">
                 <div
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
@@ -30,7 +31,7 @@ const RecentProjects = () => {
                 <img
                   src={img}
                   alt="cover"
-                  className="z-10 absolute bottom-0"
+                  className="z-10 absolute bottom-0 top-5"
                 />
               </div>
 
@@ -39,7 +40,7 @@ const RecentProjects = () => {
               </h1>
 
               <p
-                className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2"
+                className="lg:text-xl lg:font-normal font-light text-sm line-clamp-3"
                 style={{
                   color: "#BEC1DD",
                   margin: "1vh 0",
