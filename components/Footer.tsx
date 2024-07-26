@@ -18,7 +18,7 @@ function Footer() {
                 <p className="text-center text-white-200 my-5  md:mt-10">
                     Reach out to me today and let&apos;s discuss how I can help you achieve your goals</p>
                 <a href="mailto:alejandro.morales.a@gmail.com">
-                    <MagicButton title='Let&apos;s get in touch' position='right' icon={<FaLocationArrow />} />
+                    <MagicButton title='Let&apos;s get in touch' position='right' icon={<FaLocationArrow/>}  />
                 </a>
                 <div className='flex mt-10 md:flex-row flex-col justify-between items-center'>
                     <div className='flex items-center md:gap-3 gap-6'>

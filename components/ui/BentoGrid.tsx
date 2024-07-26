@@ -185,7 +185,7 @@ export const BentoGridItem = ({
                 {/* <img src="/confetti.gif" alt="confetti" /> */}
                 <Lottie options={defaultOptions} height={200} width={400} />
               </div>
-              <a href="mailto:alejandro.morales.a@gmail.com">
+              <a href="mailto:alejandro.morales.a@gmail.com?subject=Let&apos;s work together!" >
                 <MagicButton
                   title={copied ? "Email Copied Just In Case!" : "Send me an email"}
                   icon={<IoCopyOutline />}
