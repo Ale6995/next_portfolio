@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { MagicButton } from "./ui/MagicButton";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { Spotlight } from "./ui/spotlight";
@@ -7,16 +7,19 @@ import { FaLocationArrow } from "react-icons/fa";
 import Alert from "./ui/Alert";
 
 const Hero = () => {
-  const [mobileWarning, setMobileWarning] = useState(window.innerWidth > 720);
-  const onResize = () => {
-    if (window.innerWidth > 720) {
-        setMobileWarning(true);
-    } else {
-        setMobileWarning(false);
-    }
-};
+  const [mobileWarning, setMobileWarning] = useState(false);
+  useEffect(() => {
 
-window.addEventListener('resize', onResize);
+    setMobileWarning(window.innerWidth > 1200 ? true : false);
+    const onResize = () => {
+
+      setMobileWarning(window.innerWidth > 1200);
+
+    };
+
+    window.addEventListener('resize', onResize);
+  }, []);
+
   return (
     <div className={`pb-36 ${mobileWarning ? 'pt-26' : 'pt-36'}`} >
       <div>
@@ -40,18 +43,18 @@ window.addEventListener('resize', onResize);
          bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
         />
       </div> */}
-      
-      
+
+
       <div className="flex justify-center relative my-20 z-10">
-      
-        
+
+
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-        { mobileWarning && (<Alert type={"Success"} message={"There is a 3d Version of this website!"} onClose={function (): void {
-          throw new Error("Function not implemented.");
-        } }></Alert>)}
-        
+          {mobileWarning && (<Alert type={"Success"} message={"There is a 3d Version of this website!"} onClose={function (): void {
+            throw new Error("Function not implemented.");
+          }}></Alert>)}
+
           <h2 className="uppercase tracking-widest text-xs text-center dark:text-blue-100 text-black-200 max-w-80 mt-4">
-            Web & Mobile 
+            Web & Mobile
           </h2>
 
           {/* TODO:Chang this captions */}
@@ -67,7 +70,7 @@ window.addEventListener('resize', onResize);
           <a href="#about">
             <MagicButton
               title="Show my work"
-              position="right" 
+              position="right"
               icon={<FaLocationArrow />} />
           </a>
         </div>
