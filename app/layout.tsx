@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Baskervville, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
+const baskerville = Baskervville({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
-  title: "Alejandro Morales Portfolio",
-  description: "Software Engineer Portfolio created by Alejandro Morales",
+  title: "Empire Hire",
+  description: "Toronto's leading staffing agency",
 };
 
 export default function RootLayout({
@@ -18,17 +23,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/personalLogo.png" type="image/png"  />
+        <link rel="icon" href="/EHLogo.jpeg" type="image/png" />
       </head>
-      <body className={inter.className}>
+      <body className={baskerville.className}>
+        
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
           {children}
+          <Footer/>
         </ThemeProvider>
+        
       </body>
     </html>
   );

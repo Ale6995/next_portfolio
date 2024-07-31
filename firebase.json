@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "alejandro-showcase",
+    "site": "eh-leads",
     "public": "out",
     "ignore": [
       "firebase.json",

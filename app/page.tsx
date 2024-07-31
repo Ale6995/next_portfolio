@@ -1,27 +1,21 @@
 "use client";
-import Experience from "@/components/Experience";
-import Footer from "@/components/Footer";
-import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
-import RecentProjects from "@/components/RecentProjects";
+import Services from "@/components/services";
+import Team from "@/components/Team";
 import { FloatingNav } from "@/components/ui/FloatingNav";
-import {  FaBriefcase, FaCode, FaEnvelope, FaUser } from "react-icons/fa";
+import WhyUs from "@/components/WhyUs";
+import { navItems } from "@/data";
+import {  FaBriefcase, FaCode, FaEnvelope, FaServicestack, FaUser, FaWrench } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col mx-auto sm:px-10 px-5 overflow-clip">
-      <div className="max-w-7xl w-full gap-y-4">
-        <FloatingNav navItems={[
-          { name: 'About me', link: '#about', icon: <FaUser /> },
-          { name: 'Projects', link: '#projects', icon: <FaCode /> },
-          { name: 'Experience', link: '#experience', icon: <FaBriefcase /> },
-          { name: 'Contact me', link: '#contact', icon: <FaEnvelope /> }
-        ]} />
-        <Hero></Hero>
-        <Grid />
-        <RecentProjects />
-        <Experience />
-        <Footer />
+    <main className="relative bg-white flex justify-center items-center flex-col mx-auto overflow-clip">
+      <div className=" w-full gap-y-4">
+        <FloatingNav navItems= {navItems} />
+        <Hero/>
+        <WhyUs />
+        <Services />
+        <Team />
       </div>
     </main>
   );

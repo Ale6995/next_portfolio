@@ -1,3 +1,4 @@
+import { DEFAULT } from "@react-three/fiber/dist/declarations/src/core/utils";
 import type { Config } from "tailwindcss";
 
 const svgToDataUri = require("mini-svg-data-uri");
@@ -42,6 +43,19 @@ const config = {
           "100": "#E4ECFF",
         },
         purple: "#CBACF9",
+        beige :{
+          DEFAULT:"#E2D8C7",
+          100:"#F5F3F0",
+          200:"#F0ECE7",
+
+        },
+        pink:{
+          DEFAULT:"#F3ECE8",
+          100:"#f5e9e8",
+        },
+        brown:{DEFAULT:"#8C644F",
+        100:"#b58d77",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
