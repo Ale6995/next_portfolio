@@ -90,12 +90,12 @@ export const navItems = [
   export const socialMedia = [
     {
       id: 1,
-      img: "/git.svg",
-      link: "https://github.com/Ale6995"
+      img: "/indeed.svg",
+      link: "https://ca.indeed.com/"
     },
     {
       id: 3,
       img: "/link.svg",
-      link: "https://www.linkedin.com/in/alejandromoralesa/"
+      link: "https://www.linkedin.com/company/empire-hire-inc/about/"
     },
   ];

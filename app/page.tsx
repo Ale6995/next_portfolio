@@ -1,6 +1,7 @@
 "use client";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Services from "@/components/services";
+import Services from "@/components/Services";
 import Team from "@/components/Team";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import WhyUs from "@/components/WhyUs";
@@ -16,6 +17,7 @@ export default function Home() {
         <WhyUs />
         <Services />
         <Team />
+        <Footer/>
       </div>
     </main>
   );

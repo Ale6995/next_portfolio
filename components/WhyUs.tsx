@@ -20,7 +20,7 @@ function WhyUs() {
 
            
             {why_us.map((card) => (
-                <CustomCard  className='flex-1 gap-4 'text={card.text} title={card.title}/>
+                <CustomCard key={card.id} className='flex-1 gap-4 'text={card.text} title={card.title}/>
                 
             ))}
              </div>

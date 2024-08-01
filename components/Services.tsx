@@ -17,7 +17,7 @@ function Services() {
                 <div className='w-full mt-2 grid lg:grid-cols-5 grid-cols-3 gap-4'>
 
                     {serviceData.map((card) => (
-                        <CardContainer className='flex-1 ' >
+                        <CardContainer key={card.id} className='flex-1 ' >
                             
                                 <CustomTile className='flex-1 ' title={card.title} />
                             

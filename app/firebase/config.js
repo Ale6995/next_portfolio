@@ -1,6 +1,8 @@
 import { getApp, initializeApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
 import { browserLocalPersistence, getAuth, setPersistence,  } from "firebase/auth";
+import {getFirestore} from 'firebase/firestore';
+
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -10,14 +12,20 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
-
+const analyticsMock = {
+    logEvent: () => {},
+    setCurrentScreen: () => {},
+    setUserId: () => {},
+  }
 const app = !getApp.length? initializeApp(firebaseConfig): getApp();
-// const analytics =  isSupported? getAnalytics(app): null;
+const analytics =  isSupported().then(yes => yes ? getAnalytics(app) : null);
 const auth= getAuth(app);
-setPersistence(auth,browserLocalPersistence ).then(() => {console.log('done')
+const db = getFirestore(app);
+
+setPersistence(auth,browserLocalPersistence ).then(() => {console.log('persistance set')
 }).catch((error) => {
   console.log(error.message)
 }   );
 
 
-export { app, auth };
+export { app, auth,analytics, db };

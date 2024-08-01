@@ -48,7 +48,7 @@ const Team = () => {
 
                 </div>
                 <div className="absolute grid grid-cols-3 justify-center items-center gap-16 mt-28">
-                        {teamMembers.map((team) => <TeamMember img={team.img} name={team.name} />)}
+                        {teamMembers.map((team) => <TeamMember key={team.id} img={team.img} name={team.name} />)}
                     </div>
 
             </div>

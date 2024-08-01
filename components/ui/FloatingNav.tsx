@@ -32,13 +32,15 @@ export const FloatingNav = ({
         if (typeof current === "number") {
             let direction = current! - scrollYProgress.getPrevious()!;
             console.log(direction);
-            if (direction < 0) {
+            if (direction < 0 ||direction === 1) {
                 setVisible(true);
             } else {
 
                 setVisible(false);
 
             }
+        }else{
+            console.log("current is not a number")
         }
     });
 

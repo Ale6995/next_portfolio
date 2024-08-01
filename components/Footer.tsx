@@ -2,6 +2,7 @@ import React from 'react'
 import { MagicButton } from './ui/MagicButton'
 import { FaLocationArrow } from 'react-icons/fa'
 import { socialMedia } from '@/data'
+import LeadForm from './ui/leadForm'
 
 function Footer() {
     return (
@@ -17,16 +18,18 @@ function Footer() {
                 </h1>
                 <p className="text-center text-black my-5  md:mt-10">
                     Reach out to us today and let&apos;s discuss how We can help you achieve your goals</p>
+
+                <LeadForm />
                 <a href="mailto:contact@empire-hire.com?subject=Let&apos;s work together! ">
-                    <MagicButton title='Let&apos;s get in touch' position='right' icon={<FaLocationArrow/>}  />
+                    <MagicButton title='Email us now!' position='right' icon={<FaLocationArrow/>}  />
                 </a>
                 <div className='flex mt-10 md:flex-row flex-col justify-between items-center'>
                     <div className='flex items-center md:gap-3 gap-6'>
                         {socialMedia.map((profile) => (
                             <a key={profile.id} href={profile.link} target='_blank'>
                             <div key={profile.id} 
-                            className='w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300'>
-                                <img src={profile.img} alt={String(profile.id)} width={20} height={20} />
+                            className='w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-brown-100 rounded-full '>
+                                <img src={profile.img} alt={String(profile.id)} width={25} height={25} />
 
                             </div> </a>
                         ))}

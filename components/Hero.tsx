@@ -29,7 +29,7 @@ const Hero = () => {
           />
 
           <h2 className="text-center md:tracking-wider mb-4 text-lg md:text-lg lg:text-2xl text-gray-400">
-            Toronto's Leading Staffing Agency for Top Talent & Employers
+            Toronto&apos;s Leading Staffing Agency for Top Talent & Employers
           </h2>
 
 

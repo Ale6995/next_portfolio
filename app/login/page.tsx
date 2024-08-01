@@ -1,7 +1,7 @@
 "use client"
-import { useState, ChangeEvent, FormEvent, use } from 'react';
+import { useState, ChangeEvent, FormEvent, use, useEffect } from 'react';
 import { auth } from '../firebase/config';
-import { browserSessionPersistence, GoogleAuthProvider, setPersistence, signInWithEmailAndPassword } from 'firebase/auth';
+import { browserSessionPersistence, GoogleAuthProvider, onAuthStateChanged, setPersistence, signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { FloatingNav } from '@/components/ui/FloatingNav';
 
@@ -23,39 +23,36 @@ export default function SignIn() {
     }));
   };
 
-  setPersistence(auth, browserSessionPersistence)
-    .then(() => {
-      // Existing and future Auth states are now persisted in the current
-      // session only. Closing the window would clear any existing state even
-      // if a user forgets to sign out.
-      // ...
-      // New sign-in will be persisted with session persistence.
-      return signInWithEmailAndPassword(auth, formData.email, formData.password);
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+          router.push('/dashboard');
+        } else {
+            router.push('/login');
+            console.log('User is not signed in');
+        }
     });
+
+    return () => unsubscribe();
+}, [router]);
 
   const handleSignIn = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      console.log('auth', auth);
-      console.log('Signing in', formData);
-      const res = await setPersistence(auth, browserSessionPersistence);
-      console.log('Signed in', res);
+      const res = await signInWithEmailAndPassword(auth, formData.email, formData.password);
       router.push('/dashboard');
       setFormData({ email: formData.email, password: '' });
     } catch (error) {
       setError((error as Error).message);
     }
   };
+  
 
 
   return (
-    <><FloatingNav />
-    <div className="flex items-center justify-center min-h-[650px] bg-pink">
+    
+    <div className="flex items-center justify-center h-screen bg-pink">
+<FloatingNav />
       <div className="p-6 bg-beige rounded-lg shadow-md">
         <h2 className="mb-4 text-2xl font-bold">Sign In</h2>
         {error && <p className="mb-4 text-red-500">{error}</p>}
@@ -88,7 +85,7 @@ export default function SignIn() {
           </button>
         </form>
       </div>
-    </div></>
+    </div>
     
   );
 }
