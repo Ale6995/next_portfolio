@@ -33,13 +33,11 @@ const LeadForm = () => {
 
         // Check if honeypot field is filled
         if (formData.honeypot) {
-            console.log("Bot detected");
             return; // Do not process the form if honeypot is filled
         }
 
         try {
             const docRef = await addDoc(collection(db, "leads"), formData);
-            console.log("Document written with ID: ", docRef.id);
             // Reset form after submission
             setFormData({
                 name: "",
@@ -52,7 +50,7 @@ const LeadForm = () => {
             console.error("Error adding document: ", e);
         }
     };
-
+    
     return (
         <div className="flex items-center justify-center w-full">
             <form
@@ -76,7 +74,7 @@ const LeadForm = () => {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="Email"
-                            required
+                            required={true}
                             className="flex-1 w-full px-2 py-2 border-b border-black bg-transparent focus:outline-none focus:ring-0"
                         />
                         <input
@@ -110,12 +108,12 @@ const LeadForm = () => {
                     />
                 </div>
                 <div className=" flex items-center justify-center ">
-                <button
-                    type="submit"
-                    className=" h-12  md:h-full  md:w-full px-6 py-3  font-bold text-white justify-center text-center bg-brown rounded-full md:rounded-tr-full md:rounded-br-full md:rounded-none hover:bg-brown-100 focus:outline-none focus:ring focus:border-brown"
-                >
-                    Call me back!
-                </button>
+                    <button
+                        type="submit"
+                        className=" h-12  md:h-full  md:w-full px-6 py-3  font-bold text-white justify-center text-center bg-brown rounded-full md:rounded-tr-full md:rounded-br-full md:rounded-none hover:bg-brown-100 focus:outline-none focus:ring focus:border-brown"
+                    >
+                        Call me back!
+                    </button>
                 </div>
             </form>
 

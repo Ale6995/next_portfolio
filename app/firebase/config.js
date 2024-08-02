@@ -2,6 +2,7 @@ import { getApp, initializeApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
 import { browserLocalPersistence, getAuth, setPersistence,  } from "firebase/auth";
 import {getFirestore} from 'firebase/firestore';
+import { getMessaging} from "firebase/messaging" ;
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -21,6 +22,7 @@ const app = !getApp.length? initializeApp(firebaseConfig): getApp();
 const analytics =  isSupported().then(yes => yes ? getAnalytics(app) : null);
 const auth= getAuth(app);
 const db = getFirestore(app);
+const messaging = isSupported().then(yes => yes ? getMessaging(app): null);
 
 setPersistence(auth,browserLocalPersistence ).then(() => {console.log('persistance set')
 }).catch((error) => {
@@ -28,4 +30,4 @@ setPersistence(auth,browserLocalPersistence ).then(() => {console.log('persistan
 }   );
 
 
-export { app, auth,analytics, db };
+export { app, auth,analytics, db,messaging };

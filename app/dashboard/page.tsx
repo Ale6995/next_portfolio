@@ -2,8 +2,9 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { onAuthStateChanged, signOut, User } from 'firebase/auth';
-import { auth, db } from '../firebase/config';
-import { collection, doc, getDocs, updateDoc } from 'firebase/firestore';
+import { getMessaging, getToken,} from 'firebase/messaging';
+import { app, auth, db,  } from '../firebase/config';
+import { addDoc, collection, doc, getDocs, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { BounceLoader } from 'react-spinners';
 import { FloatingNav } from '@/components/ui/FloatingNav';
 import { saveAs } from 'file-saver';
@@ -20,7 +21,7 @@ interface Lead {
 
 interface QuickHireEntry {
     id: string;
-    yourName: string;
+    name: string;
     companyName: string;
     phone: string;
     address: string;
@@ -41,6 +42,7 @@ const Dashboard = () => {
     const [sortOrder, setSortOrder] = useState<string>('asc');
     const router = useRouter();
 
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -48,6 +50,7 @@ const Dashboard = () => {
                 setUser(user);
                 fetchLeads();
                 fetchquickHires();
+                requestPermission();
             } else {
                 router.push('/login');
                 console.log('User is not signed in');
@@ -56,6 +59,33 @@ const Dashboard = () => {
 
         return () => unsubscribe();
     }, [router]);
+
+    const requestPermission = async () => {
+        
+        try {
+            
+          await Notification.requestPermission();
+          const messaging = getMessaging(app);
+          if (!messaging) {
+            return;
+          }
+          
+          const currentToken =  await getToken(messaging, { vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY });
+          if (currentToken) {
+            console.log('Token:', currentToken);
+            await addDoc(collection(db, "tokens"), {
+                token: currentToken,
+                timestamp: Date.now()
+              });
+          } 
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      
+    
+
+
 
     const fetchLeads = async () => {
         try {
@@ -173,7 +203,7 @@ const Dashboard = () => {
                 <div className='flex justify-between items-center mb-4' id="leads">
                     <h1 className="mb-4 text-4xl font-bold text-brown">Leads</h1>
                     <button onClick={logout} className='px-4 py-2 font-bold text-brown bg-pink rounded hover:bg-red-300 focus:outline-none focus:ring focus:border-red-300'>Sign out</button>
-                </div>
+                     </div>
                 <div className="flex justify-between items-center mb-4">
                     <button onClick={() => handleSort('name')} className="px-4 py-2 bg-brown-300 text-brown rounded hover:bg-brown-500 focus:outline-none focus:ring focus:border-brown-500">
                         Sort by Name {sortField === 'name' && (sortOrder === 'asc' ? '↑' : '↓')}
@@ -241,7 +271,7 @@ const Dashboard = () => {
                         <table className="min-w-full bg-transparent rounded-xl border-gray-200">
                             <thead className="bg-beige">
                                 <tr>
-                                    <th className="px-4 py-2 border-b">Your Name</th>
+                                    <th className="px-4 py-2 border-b">Name</th>
                                     <th className="px-4 py-2 border-b">Company Name</th>
                                     <th className="px-4 py-2 border-b">Phone</th>
                                     <th className="px-4 py-2 border-b">Address</th>
@@ -257,7 +287,7 @@ const Dashboard = () => {
                             <tbody className="bg-beige-100 rounded-2xl">
                                 {quickHires.map((entry, index) => (
                                     <tr key={index}>
-                                        <td className="px-4 py-2 border-b">{entry.yourName}</td>
+                                        <td className="px-4 py-2 border-b">{entry.name}</td>
                                         <td className="px-4 py-2 border-b">{entry.companyName}</td>
                                         <td className="px-4 py-2 border-b">{entry.phone}</td>
                                         <td className="px-4 py-2 border-b">{entry.address}</td>
