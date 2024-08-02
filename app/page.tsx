@@ -1,4 +1,5 @@
 "use client";
+import { FastHire } from "@/components/FastHire";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -14,6 +15,7 @@ export default function Home() {
       <div className=" w-full gap-y-4">
         <FloatingNav navItems= {navItems} />
         <Hero/>
+        <FastHire />
         <WhyUs />
         <Services />
         <Team />

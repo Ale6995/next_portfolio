@@ -13,6 +13,11 @@
     "source": "/login",
     "destination": "/login.html",
     "type": 308
-  } ]
+  },
+  {
+    "source": "/dashboard",
+    "destination": "/dashboard.html",
+    "type": 308
+  }  ]
   }
 }

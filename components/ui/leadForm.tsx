@@ -8,6 +8,7 @@ interface FormData {
     email: string;
     phone: string;
     additionalInfo: string;
+    honeypot?: string; // Add honeypot field to FormData
 }
 
 const LeadForm = () => {
@@ -16,6 +17,7 @@ const LeadForm = () => {
         email: "",
         phone: "",
         additionalInfo: "",
+        honeypot: "" // Initialize honeypot field
     });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -28,7 +30,12 @@ const LeadForm = () => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        e.preventDefault();
+
+        // Check if honeypot field is filled
+        if (formData.honeypot) {
+            console.log("Bot detected");
+            return; // Do not process the form if honeypot is filled
+        }
 
         try {
             const docRef = await addDoc(collection(db, "leads"), formData);
@@ -39,6 +46,7 @@ const LeadForm = () => {
                 email: "",
                 phone: "",
                 additionalInfo: "",
+                honeypot: "" // Reset honeypot field
             });
         } catch (e) {
             console.error("Error adding document: ", e);
@@ -49,10 +57,10 @@ const LeadForm = () => {
         <div className="flex items-center justify-center w-full">
             <form
                 onSubmit={handleSubmit}
-                className="flex items-center  m-6 rounded-full border border-black  w-full max-w-3xl h-52"
+                className="grid grid-cols-1  items-stretch p-8 md:p-0 md:flex m-6 rounded-full border border-black  max-w-3xl h-96 md:h-52  md:w-full"
             >
-                <div className="flex-grow relative flex flex-col space-y-4 p-10 w-52 mr-3">
-                    <div className="flex space-x-4 ">
+                <div className="flex-grow relative flex flex-col space-y-4 p-2 md:p-10  md:w-52 mr-3">
+                    <div className="grid grid-cols-1 md:grid-cols-3 md:space-x-4">
                         <input
                             type="text"
                             name="name"
@@ -60,7 +68,7 @@ const LeadForm = () => {
                             onChange={handleChange}
                             placeholder="Name"
                             required
-                            className="flexw w-1/3 px-2 py-2 border-b border-black bg-transparent focus:outline-none focus:ring-0"
+                            className="flex-1 w-full px-2 py-2 border-b border-black bg-transparent focus:outline-none focus:ring-0"
                         />
                         <input
                             type="email"
@@ -69,7 +77,7 @@ const LeadForm = () => {
                             onChange={handleChange}
                             placeholder="Email"
                             required
-                            className="flex-1 w-1/3 px-2 py-2 border-b border-black  bg-transparent focus:outline-none focus:ring-0"
+                            className="flex-1 w-full px-2 py-2 border-b border-black bg-transparent focus:outline-none focus:ring-0"
                         />
                         <input
                             type="text"
@@ -78,7 +86,7 @@ const LeadForm = () => {
                             onChange={handleChange}
                             placeholder="Phone Number"
                             required
-                            className="flex-1 w-1/3 px-2 py-2 border-b border-black bg-transparent focus:outline-none focus:ring-0"
+                            className="flex-1 w-full px-2 py-2 border-b border-black bg-transparent focus:outline-none focus:ring-0"
                         />
                     </div>
                     <div>
@@ -89,17 +97,28 @@ const LeadForm = () => {
                             onChange={handleChange}
                             placeholder="Additional Information"
                             required
-                            className="w-full px-2 py-2 border-b  border-black bg-transparent focus:outline-none focus:ring-0 resize-none"
+                            className="w-full px-2 py-2 border-b border-black bg-transparent focus:outline-none focus:ring-0 resize-none"
                         />
                     </div>
+                    <input
+                        type="text"
+                        name="hp"
+                        value={formData.honeypot}
+                        onChange={handleChange}
+                        className="hidden" // Hide honeypot field
+                        aria-hidden="true"
+                    />
                 </div>
+                <div className=" flex items-center justify-center ">
                 <button
                     type="submit"
-                    className="h-full px-6 py-3 font-bold text-white bg-brown rounded-tr-full rounded-br-full hover:bg-brown-100 focus:outline-none focus:ring focus:border-brown"
+                    className=" h-12  md:h-full  md:w-full px-6 py-3  font-bold text-white justify-center text-center bg-brown rounded-full md:rounded-tr-full md:rounded-br-full md:rounded-none hover:bg-brown-100 focus:outline-none focus:ring focus:border-brown"
                 >
                     Call me back!
                 </button>
+                </div>
             </form>
+
         </div>
     );
 };
